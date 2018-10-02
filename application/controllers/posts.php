@@ -19,6 +19,8 @@ class posts extends CI_Controller
 	public function view($slug = NULL)
 	{
 		$data['post'] = $this->post_model->get_posts($slug);
+		$post_id = $data['post']['id'];
+		$data['comments'] = $this->comment_model->get_comments($post_id);
 
 		if (empty($data['post'])) {
 			show_404();
@@ -62,6 +64,7 @@ class posts extends CI_Controller
 			}
 
 			$this->post_model->create_post($post_image);
+			$this->session->set_flashdata('post_created', 'Your Post has been created');
 			redirect('posts');
 		}
 
@@ -69,6 +72,7 @@ class posts extends CI_Controller
 
 	public function delete($id){
 		$this->post_model->delete_post($id);
+		$this->session->set_flashdata('post_updated', 'Your post has been updated');
 		redirect('posts');
 
 	}
@@ -92,6 +96,7 @@ class posts extends CI_Controller
 
 	public function update(){
 		$this->post_model->update_post();
+		$this->session->set_flashdata('post_updated', 'Your post has been updated');
 		redirect('posts');
 		
 	}

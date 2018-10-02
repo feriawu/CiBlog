@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pages</title>
+	<title>Codeigniter Blog</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css">
 	<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/ckeditor/ckeditor.js"></script>
@@ -22,6 +22,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
 					<li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
 					<li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
 					
@@ -31,3 +32,23 @@
 	</nav>
 
 	<div class="container">
+		<!-- Flash Messages -->
+		<?php if ($this->session->flashdata('user_registered')) : ?>
+			<?php echo "<p class='alert alert-success'>".$this->session->flashdata('user_registered')."</p>"; ?>
+		<?php endif; ?>
+
+		<?php if ($this->session->flashdata('post_created')) : ?>
+			<?php echo "<p class='alert alert-success'>".$this->session->flashdata('post_created')."</p>"; ?>
+		<?php endif; ?>
+
+		<?php if ($this->session->flashdata('post_updated')) : ?>
+			<?php echo "<p class='alert alert-success'>".$this->session->flashdata('post_updated')."</p>"; ?>
+		<?php endif; ?>
+
+		<?php if ($this->session->flashdata('category_updated')) : ?>
+			<?php echo "<p class='alert alert-success'>".$this->session->flashdata('category_updated')."</p>"; ?>
+		<?php endif; ?>
+
+		<?php if ($this->session->flashdata('post_deleted')) : ?>
+			<?php echo "<p class='alert alert-success'>".$this->session->flashdata('post_deleted')."</p>"; ?>
+		<?php endif; ?>
