@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Pages</title>
-	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css">
+	<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -17,6 +18,13 @@
 					<li><a href="<?php echo base_url(); ?>">Home</a></li>
 					<li><a href="<?php echo base_url(); ?>about">About</a></li>
 					<li><a href="<?php echo base_url(); ?>posts">Blog</a></li>
+					<li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
+					<li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
+					
 				</ul>
 			</div>
 		</div>

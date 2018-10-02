@@ -4,3 +4,17 @@
 	display: block;
 	padding: 4px;
 }
+
+.post-thumb{
+	max-width: 100%;
+	margin-bottom: 15px;
+}
+
+.title{
+	margin-top:2px;
+}
+
+.in-post-img{
+	max-width: 625px;
+	margin: 15px auto;
+}

@@ -1,3 +1,3 @@
-<h2>This is <?= $title; ?></h2>
+<h2><?= $title; ?></h2>
 
 <p>Welcome to Ciblog Aplication</p>

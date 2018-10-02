@@ -33,6 +33,7 @@ class posts extends CI_Controller
 
 	public function create(){
 		$data['title'] = 'Create Post';
+		$data['categories'] = $this->post_model->get_categories();
 		
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('body', 'Body', 'required');
@@ -43,10 +44,56 @@ class posts extends CI_Controller
 		$this->load->view('template/footer');
 			# code...
 		}else{
-			$this->post_model->create_post();
+			//upload images
+			$config['upload_path'] = './assets/images/posts';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = '3000';
+			$config['max_width'] = '1200';
+			$config['max_height'] = '800';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload()) {
+				$errors =array('error' =>$this->upload->display_errors());
+				$post_image = 'noimage.png';
+			}else{
+				$data = array('upload_data' => $this->upload->data());
+				$post_image = $_FILES['userfile']['name'];
+			}
+
+			$this->post_model->create_post($post_image);
 			redirect('posts');
 		}
 
+	}
+
+	public function delete($id){
+		$this->post_model->delete_post($id);
+		redirect('posts');
+
+	}
+
+	public function edit($slug){
+		$data['post'] = $this->post_model->get_posts($slug);
+
+		$data['categories'] = $this->post_model->get_categories();
+
+		if (empty($data['post'])) {
+			show_404();
+		}
+
+		$data['title'] = 'Edit Post';
+		
+		$this->load->view('template/header');
+		$this->load->view('posts/edit', $data);
+		$this->load->view('template/footer');
+
+	}
+
+	public function update(){
+		$this->post_model->update_post();
+		redirect('posts');
+		
 	}
 }
 
