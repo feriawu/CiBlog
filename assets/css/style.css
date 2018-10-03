@@ -1,8 +1,9 @@
 .post-date{
-	background: #0ce3ac;
+	background: #212529;
 	margin: 3px 0;
 	display: block;
 	padding: 4px;
+	color: white;
 }
 
 .post-thumb{
@@ -17,4 +18,17 @@
 .in-post-img{
 	max-width: 625px;
 	margin: 15px auto;
+}
+
+.slash {
+    color: white;
+    height: 100%;
+    margin-top: 7px;
+}
+.pull-right{
+	float: right;
+}
+
+.fix-margin{
+	margin-top: 70px;
 }

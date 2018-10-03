@@ -1,13 +1,57 @@
-CiBlog is Blog Engine Using Codeigniter 3.1.9
+###################
+ciBlog
+###################
 
-WARNING : Project Still Under Construction,Not yet perfect.
+This is a simple blog application built on CodeIgniter 3.x. It is from the YouTube series [Build a CodeIgniter PHP App](https://www.youtube.com/watch?v=I752ofYu7ag)
 
-How to open this project :
-****************************************************************************************************************************************
-- Create database name 'ciblog
-****************************************************************************************************************************************
-- Import database in Project folder 'database' ('Not yet Uploaded')
-****************************************************************************************************************************************
-- copy the projectfolder to your server root on xampp/htdocs for xampp, or wamp/www on wamp server, etc.
-****************************************************************************************************************************************
-- try open root_url/project-folder-name
+*******************
+Usage
+*******************
+
+Create the database with the posts table and upload to your host
+
+**************************
+SQL
+**************************
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `post_image` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `zipcode` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
