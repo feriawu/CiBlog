@@ -1,4 +1,5 @@
 <h2><?= $title ?></h2>
+<br>
 <?php foreach($posts as $post) : ?>
 	<div class="row">
 		<div class="col-md-3">
@@ -12,6 +13,7 @@
 		<p><a class="btn btn-primary" href="<?php echo site_url('/posts/'.$post['slug']); ?>">Read More</a></p>
 		</div>
 	</div>
+	<hr>
 <?php endforeach; ?>
 <div class="pagination-links">
 		<?php echo $this->pagination->create_links(); ?>
