@@ -55,6 +55,12 @@
 
           </li>
 
+          <li class="nav-item <?php echo show_current_class('term-of-services'); ?>">
+
+            <a class="nav-link" href="<?php echo base_url(); ?>term-of-services">Term Of Services</a>
+
+          </li>
+
           <li class="nav-item <?php echo show_current_class('posts'); ?>">
 
             <a class="nav-link" href="<?php echo base_url(); ?>posts">Blog</a>
