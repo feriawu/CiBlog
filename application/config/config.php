@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 */
 
-$config['base_url'] = 'http://ciblog.ferigalung.com';
+$config['base_url'] = 'http://localhost/ciblog';
 
 
 

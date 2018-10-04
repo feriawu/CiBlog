@@ -152,13 +152,13 @@ $db['default'] = array(
 
 	'dsn'	=> '',
 
-	'hostname' => 'ciblog.ferigalung.com',
+	'hostname' => 'localhost',
 
-	'username' => 'ferigalu_ciblog',
+	'username' => 'root',
 
-	'password' => 'ciblog_db',
+	'password' => '',
 
-	'database' => 'ferigalu_ciblog',
+	'database' => 'ciblog',
 
 	'dbdriver' => 'mysqli',
 
